@@ -21,6 +21,23 @@
 - **Case Studies:** Read the question first, then skim the case study for relevant info. Avoid drowning in unnecessary details.
 
 ## Deep Dive Knowledge
+  before_script:
+    - echo "YES"
+    - mkdir -p /home/arun
+    - mkdir -p /kaniko/.docker
+    - |
+      echo '{
+        "auths": {
+          "$CI_REGISTRY": {
+            "username": "$CI_REGISTRY_USER",
+            "password": "$CI_REGISTRY_PASSWORD"
+          },
+          "$CI_DEPENDENCY_PROXY_SERVER": {
+            "username": "$CI_DEPENDENCY_PROXY_USER",
+            "password": "$CI_DEPENDENCY_PROXY_PASSWORD"
+          }
+        }
+      }' > /kaniko/.docker/config.json
 
 - **Master Commands:** Know your commands and their purpose. For instance, to mount an Azure File Share to an Azure Container Instance, you need the Storage Account Key.
 - **Azure Portal:** For questions like "What's the easiest way to do X?" or "Where can you manage Y?", the Azure Portal is often a good bet.
